@@ -1,0 +1,1202 @@
+.dn {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input,
+select {
+    outline: none;
+    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+div {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img[src=""] {
+    display: none;
+}
+
+/* 引入字体 */
+@font-face{
+    font-family: zdy;
+    src:url("../font/TrajanPro3-Regular.otf");
+}
+/*====== 建议body给稿子底色背景 ==============*/
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    // background: #320e5f;
+   
+}
+body{
+    width: 100%;
+    height: 100%;
+    // transform: rotate(90deg);
+}
+//表单提示文字颜色
+::-webkit-input-placeholder {
+    color: #320e5f;
+}
+
+//定义设计稿宽度
+@screenWidth: 1448;
+//换算vw
+@vw : (@screenWidth/100vw);
+
+.setwh(@w: 1448, @h: 750) {
+    width: (@w/@vw);
+    height: (@h/@vw);
+}
+
+
+//less 定位函数 左上
+.lt(@l: 0, @t: 0) {
+    position: absolute;
+    left: (@l/@vw);
+    top: (@t/@vw);
+}
+
+//右上
+.rt(@r: 0, @t: 0) {
+    position: absolute;
+    right:(@r/@vw);
+    top: (@t/@vw);
+}
+
+//less 定位函数 左下
+.lb(@l: 0, @b: 0) {
+    position: absolute;
+    left: (@l/@vw);
+    bottom: (@b/@vw);
+}
+
+//右下
+.rb(@r: 0, @b: 0) {
+    position: absolute;
+    right: (@r/@vw);
+    bottom: (@b/@vw);
+}
+
+.cl(@w) {
+    position: absolute;
+    left: 50%;
+    margin-left: (-@w/2/@vw);
+}
+
+.ct(@h) {
+    position: absolute;
+    top: 50%;
+    margin-top: (-@h/2/@vw);
+}
+
+/* 监测横屏 start */ 
+.landscape{
+    // display: none;
+    width: 100%;
+    height: 100%;
+    background: #e6cf81;
+    z-index: 99;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .land-top{
+        .setwh(120, 120);
+        position: relative;
+        img:nth-child(1){
+            .setwh(54, 111);
+            position: relative;
+        }
+        img:nth-child(2){
+            .setwh(33, 51);
+            .lt(80,0)
+        }
+        img:nth-child(3){
+            .setwh(114, 57);
+            .lb(25, -20);
+            position: absolute;
+            animation: phone 2s infinite;
+            transform-origin: left center;
+        }
+    }
+    .land-bot{
+        position: relative;
+        width: auto;
+        img{
+            .setwh(172, 69);
+        }
+    }
+}
+
+/* 横屏手机动画 */
+@keyframes phone{
+    0%{
+        transform: rotateZ(-90deg);
+    }
+    50%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(-90deg);
+    }
+}
+
+/* 监测横屏 end */ 
+
+/* loading start */ 
+
+.loading{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .lad-bg{
+        .lt();
+        z-index: -88;
+        width: 100%;
+        height: 100%;
+    }
+    .load-cont{
+        text-align: center;
+        padding-top: (148 / @vw);
+        .load-logo{
+            img{
+                &:first-of-type{
+                    width:(97 / @vw);
+                }
+                &:last-of-type{
+                    width:(38 / @vw);
+                    margin-bottom: (52 / @vw);
+                }
+            }
+        }
+        .load-ren{
+            position: relative;
+            margin-top: (25 / @vw);
+            transition:all 1s;
+            img{
+                margin: 0 (10 / @vw);
+            }
+            .lad1{
+                width: (102 / @vw);
+                opacity: 0;
+                animation: ren .8s linear forwards;
+                animation-delay: 1s;
+
+            }
+            .lad2{
+                width: (83 / @vw);
+                opacity: 0;
+                animation: ren .8s  linear forwards;
+                animation-delay:2s;
+            }
+            .lad3{
+                width: (111 / @vw);
+                opacity: 0;
+                animation: ren .8s linear forwards;
+                animation-delay:3s;
+
+            }
+            .lad4{
+                width: (108 / @vw);
+                opacity: 0;
+                animation: ren .8s linear forwards;
+                animation-delay: 4s;
+            }
+            .lad5{
+                width: (63 / @vw);
+                opacity: 0;
+                animation: ren .8s linear forwards;
+                animation-delay: 5s;
+            }
+            
+        }
+        .load-line{
+            position: relative;
+            width: 100%;
+            height: (2 / @vw);
+            background-color: #fff;
+            .after{
+                .lt();
+                width:0;
+                height: 100%;
+                background-color: #000;
+            }
+        }
+        .num{
+            font-size: (18 / @vw);
+            color: #000;
+            margin: (16 / @vw) 0;
+        }
+        .load-bot{
+            margin-top: (30 / @vw);
+            img{
+                width: (85 / @vw);
+            }
+        }
+    }
+}
+
+/* loading 动画 */ 
+@keyframes ren{
+    0%{
+        transform: translateX(-30 / @vw);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+
+    }
+}
+
+/* loading end */ 
+
+/* 博览会 start */ 
+
+.expo{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    // transform-origin: center center;
+    transition: all 1s;
+    animation: expo 1.5s linear forwards;
+    animation-delay: 1.2s;
+    text-align: center;
+    .p1-bg{
+        .lt();
+        z-index: -88;
+        width: 100%;
+        height: 100%;
+        animation: tu 1s linear forwards;
+        animation-delay: 1.2s;
+    }
+    .expo-cont{
+        // width: 100%;
+        text-align: center;
+        // opacity: 1 !important;
+        img{
+            &:first-of-type{
+                width:(331 / @vw) ;
+                margin-top: (178 / @vw);
+                animation: logo 1.6s linear forwards;
+                animation-delay: 1.2s;
+            }
+            &:nth-of-type(2){
+                .cl(112);
+                width: (112 / @vw);
+                margin-top: (130 / @vw);
+            }
+            &:nth-of-type(3){
+                .cl(112);
+                width: (112 / @vw);
+                margin-top: (120 / @vw);
+            }
+            &:nth-of-type(4){
+                .cl(80);
+                width: (112 / @vw);
+                margin-top:( 400 / @vw);
+            }
+            &:nth-of-type(5){
+                .cl(200);
+                width: (112 / @vw);
+                margin-top: (400 / @vw);
+            }
+            &:nth-of-type(6){
+                .cl(300);
+                width: (250 / @vw);
+                margin-top:( 400 / @vw);
+            }
+            &:nth-of-type(7){
+                .cl(300);
+                width: (300 / @vw);
+                margin-top: (250 / @vw);
+                margin-left: (-40 / @vw);
+                z-index: 0;
+                animation: yan 1.5s linear forwards;
+            }
+            &:last-of-type{
+                .cl(200);
+                width:(200 / @vw);
+                margin-top: (220 / @vw);
+                z-index: -1;
+            }
+        }
+    }
+    .shake{
+        text-align: center;
+        .cl(251 / 1.8);
+        top:( 400 / @vw / 1.8);
+        perspective: 1000px;
+        animation: shake 1s linear infinite;
+        img{
+            &:first-of-type{
+                width: (251 / @vw / 1.8);
+                animation: shake 1s linear infinite;
+            }
+            &:last-of-type{
+                .cl(76/1.8);
+                top:( 50 / @vw / 1.8);
+                width:( 76 / @vw / 1.8);
+                animation: shake 1s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes expo{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.8);
+    }
+}
+@keyframes shake{
+    0% {
+        transform:translateX(0) rotate3d(0, 0, 0, 0deg);
+  
+    }
+    50% {
+        transform: translateX(5 / @vw) rotate3d(0, 0, 1, 8deg);
+       
+    }
+    75% {
+        transform:translateX(-5 / @vw) rotate3d(0, 0, 1, -2deg);
+        
+    }
+    100% {
+        transform:translateX(0) rotate3d(0, 0, 1, 0deg);
+        
+    }
+}
+@keyframes tu{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: .6;
+    }
+}
+@keyframes logo{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes yan{
+    0%{
+        opacity: .5;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(2);
+    }
+}
+/* 博览会 end */ 
+
+/* 制作属于你的茅台酒 start */ 
+
+.oneself{
+   .page1{
+        text-align: center;
+        .one-bg{
+        .lt();
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+        }
+        .oneself-cont{
+    .cont{
+        padding-top: (190 / @vw);
+        margin-bottom: (44 / @vw);
+        img{
+          width: (241 / @vw);
+          &:first-of-type{
+            margin-top: (99 / @vw);
+            animation: rounds 2s linear infinite;
+          }
+          &:nth-of-type(2){
+              margin:0 (60 / @vw) ;
+              margin-bottom: (102 / @vw);
+              animation: rounds 2s linear infinite;
+          }
+          &:last-of-type{
+            margin-top: (99 / @vw);
+            animation: rounds 2s linear infinite .5s;
+          }
+        }
+    }
+    .btn{
+        .cl(485);
+        z-index: 99;
+        img{
+            &:first-of-type{
+                width: (485 / @vw);
+                animation: btnp2 5s;
+            }
+            &:last-of-type{
+                width:(457 / @vw) ;
+            }
+        }
+    }
+        }
+   }
+   .page2{
+       text-align: center;
+      .page2-bg{
+          .lt();
+          width: 100%;
+          height: 100%;
+          z-index: -99;
+      } 
+      .page2-cont{
+        //   display: flex;
+        //   justify-content: space-around;
+          .left{
+              .lt();
+              left: (96 / @vw); 
+              top: (190 / @vw);
+                img{
+                  &:first-of-type{
+                      width: (94 / @vw);
+                  }
+                  &:last-of-type{
+                    width: (73 / @vw);
+                    margin-bottom: (120 / @vw);
+                    margin-left: (14 / @vw);
+                }
+              }
+          }
+          .centre{
+              .zj{
+                  width: (137 / @vw);
+              }
+              .yj{
+                width: (141 / @vw);
+              }
+              .jz1{
+                .cl(478);
+                margin-top: (380 / @vw);
+                width: (478 / @vw);
+                z-index: -88;
+            }
+            .jz2{
+                .cl(478);
+                margin-top: (380 / @vw);
+                width: (478 / @vw);
+                z-index: -88;
+            }
+            .sz{
+                .cl(70);
+                width: (54 / @vw);
+                margin-top: (-75 / @vw);              
+            }
+            .wz{
+                width: (231 / @vw);
+               margin-top: (-20 / @vw);
+            }
+            
+          }
+          .btn{
+            .cl(298);
+            width: (298 / @vw);
+            img{
+                width: (298 / @vw);
+                margin-top: (40 / @vw);
+            }
+        }
+          .right{
+              .rt();
+              .one{
+                .jdt{
+                    position: relative;
+                    width: (41 / @vw);
+                    height: (254 / @vw);
+                    overflow: hidden;
+                    border-radius: (20 / @vw);
+                    margin-top: (189 / @vw);
+                    margin-left: (20 / @vw);
+                    img{
+                        width:(41 / @vw);
+                    }
+                    .jdts{
+                        .lb();
+                        left: 1px;
+                        // bottom: (5 / @vw);
+                        width: (39 / @vw);
+                        border-radius:0 0 (20 / @vw) (20 / @vw);
+                        // height: 20%;
+                        background-color: #8b5c26;
+                    }
+                }
+                p{
+                    margin-right: (350 / @vw);
+                    margin-top: (20 / @vw);
+                    font-size: (20 / @vw);
+                    margin-bottom: (20 / @vw);
+                    span{
+                        display: inline-block;
+                        width: (34 / @vw);
+                        text-align: center;
+                    }
+                }
+                .jt{
+                    width: (64 / @vw);
+                    margin-right: (340 / @vw);
+                }
+                .sz{
+                    width:(60 / @vw) ;
+                    margin-right: (300 / @vw);
+                }
+              }
+              .ones{
+                  .rt();
+                  margin-top: (304 / @vw);
+                  margin-right: (45 / @vw);
+                  img{
+                      &:first-of-type{
+                          width: (206 / @vw);
+                      }
+                  }
+              }
+          }
+      }
+   }
+   .page3{
+    text-align: center;
+    .p4_bg{
+        .lt();
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+        
+    } 
+    .bd{
+        width: 100%;
+        height: 100%;
+        .lt(0,0);
+        .text{
+            display: flex;
+            // .lc(20,434);
+            position: relative;
+            margin-left: (50 / @vw);
+            margin-top: (150 / @vw);
+            img:nth-of-type(1){
+                .setwh(94, 434);
+                opacity: 0;
+                animation: text1 1s linear forwards;
+                
+            }
+            img:nth-of-type(2){
+                .setwh(73, 402);
+                margin-left: 10 / @vw;
+                opacity: 0;
+                animation: text2 1s linear forwards;
+            }
+        }
+        .hint1{
+            img{
+                .setwh(232, 88);
+                .lt(390,145)
+            }
+        }
+        .sorghum{
+            .bg{
+                display: flex;
+                img:nth-of-type(1){
+                    .setwh(227, 234);
+                    .lt(222,246);
+                }
+                img:nth-of-type(2){
+                    .setwh(261, 271);
+                    .lt(336,218);
+                    z-index: 1;
+                }
+                img:nth-of-type(3){
+                    .setwh(241, 250);
+                    .lt(498,246);
+                }
+            }
+            .sorghum-bd{
+                .setwh(348, 357);
+                .lt(295,180);
+                z-index: 1;
+            }
+        }
+        .hint2{
+            .lt(500, 464);
+            z-index: 9;
+            img:nth-of-type(1){
+                .rt(0,0);
+                .setwh(61, 31);
+                transform: rotate(-30deg);
+                // margin-right: (20 / @vw);
+            }
+            img:nth-of-type(2){
+                .setwh(53, 81);
+                .lt(0,0);
+                margin-left: 150 / @vw;
+                transform: rotate(-30deg);
+                animation: hintthree 2s linear infinite;
+            }
+           
+        }
+        .dustpan{
+            .setwh(253,170);
+            .lt(300, 500);
+        }
+        .pot{
+            .setwh(877, 800);
+            .lt(660,0);
+            overflow: hidden;
+            .pot-hd{
+                .setwh(800, 477);
+                .lt(0,-205);
+                z-index: 9;
+            }
+            .pot-bd{
+                .setwh(593, 400);
+                .lb(0,-50);
+                img:nth-of-type(2){
+                    .lt(0,-50);
+                    opacity: 0;
+                }
+            }
+        }
+        .dustpan2{
+            z-index: 9;
+            .setwh(334, 254);
+            .lt(252, 458);
+            img:nth-of-type(2){
+                .setwh(127, 119);
+                .lt(100,68);
+            }
+        }
+        .dustpan-active{
+            animation: dustpan2 3s linear forwards;
+            img:nth-of-type(2){
+                animation: sorghum .3s linear forwards 1.5s; 
+            }
+        }
+        .hint3{
+            .setwh(320, 88);
+            .lt(252, 408);
+            z-index: 9;
+        }
+        .hint4{
+            .lt(570, 524);
+            img:nth-of-type(1){
+                .lt(0,0);
+                .setwh(61, 31);
+            }
+            img:nth-of-type(2){
+                .setwh(53, 81);
+                margin-top: 20 / @vw;
+                animation: hint 2s linear infinite;
+            }
+            z-index: 9;
+        }
+        .steam{
+            .rt(0, 0);
+            .setwh(936,460);
+            // background-color: #000;
+            // transform-origin: top center;
+            z-index: 99;
+            // transform: translateX(120 / @vw) ;
+            overflow: hidden;
+            img:nth-of-type(1){
+                .setwh(936, 620);
+                .lb(0,-520);
+                animation: steam2 15s linear infinite;
+            }
+            img:nth-of-type(2){
+                .setwh(730, 560);
+                .lt(0,460);
+                transform-origin: center bottom;
+                animation: steam 15s linear infinite;
+            }
+        }
+        .btn{
+            .setwh(298, 47);
+            .cl(298);
+            .rb();
+            margin-bottom: (50 / @vw);
+        }
+        
+        .btnanmate{
+            animation: btnp3 2s linear infinite;
+        }
+    }
+   }
+   .page4{
+    text-align: center;
+    .p5_1bg{
+        .lt();
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+    } 
+    .bd{
+        width: 100%;
+        height: 100%;
+        .lt(0,0);
+        .text{
+            display: flex;
+            // .cl(200);
+            position: relative;
+            margin-left: (200 / @vw);
+            margin-top: (200 / @vw);
+            img:nth-of-type(1){
+                .setwh(92, 380);
+                opacity: 0;
+                animation: text1 1s linear forwards;
+                margin-right: (50 / @vw);
+            }
+            img:nth-of-type(2){
+                .setwh(73, 317);
+                margin-left: 10 / @vw;
+                opacity: 0;
+                animation: text2 1s linear forwards;
+            }
+        }
+        .liquor{
+            .setwh(199, 474);
+            .cl(199);
+            text-align: center;
+            top:(120 / @vw);
+            .cl(199);
+            .cap{
+                .setwh(83, 64);
+                .cl(90);
+            }
+            .jp{
+                margin-top: (20 / @vw)
+            }
+
+        }
+        .hint1{
+            .setwh(202, 90);
+            .lt(920,145);
+        }
+        .ribbon{
+            .setwh(170, 448);
+            .lt(920,220);
+        }
+        .hint2{
+            .setwh(92,51);
+            .lt(535,190);
+            img:nth-of-type(1){
+                .setwh(92,8);
+                .lt(0,0)
+            }
+            img:nth-of-type(2){
+                .setwh(34,51);
+               .cl(34);
+            }
+        }
+        .hint3{
+            .setwh(222,155);
+            .lt(920,145);   
+        }
+        .btn{
+            .setwh(357, 86);
+            .cl(357);
+            bottom: (50 / @vw);
+        }
+        .btnanmate{
+            animation: btnp3 2s linear infinite;
+        }
+    }
+   }
+   .page5{
+    text-align: center;
+    .p5_1bg{
+        .lt();
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+    } 
+    .page5-cont{
+        display: flex;
+        text-align: center;
+        .hint{
+            margin-left: (540 / @vw);
+            margin-top: (130 / @vw);
+            img{
+                &:first-of-type{
+                    .setwh(53,13);
+                }
+                &:last-of-type{
+                    .setwh(54,59);
+                    margin-left: (50 / @vw);
+                }
+            }
+        }
+        .hint2{
+            img{
+                width: (147 / @vw);
+                margin-left: (150 / @vw);
+                margin-top: (130 / @vw);
+            }
+        }
+        .liquor{
+            .setwh(199, 474);
+            .cl(199);
+            text-align: center;
+            top:(120 / @vw);
+            .cl(199);
+            .cap{
+                .setwh(83, 64);
+                .cl(90);
+            }
+            .jp{
+                margin-top: (20 / @vw)
+            }
+            .sd{
+                .lt();
+                width:(170 / @vw) ;
+                margin-top: (20 / @vw);
+            }
+        }
+       }
+       .btn{
+        .setwh(449,86);
+        .cl(449);
+        bottom: (20 / @vw);
+    }
+    }
+
+    .page6{
+        text-align: center;
+        // position: relative;
+    .p7_bg{
+        .lt();
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+        } 
+    .p7_11{
+        width: (1281 / @vw);
+        height: (595 / @vw);
+        .cl(1281);
+        .ct(595);
+    //    .setwh(1281,595);
+        z-index: -88;
+    }
+    .p6l{
+        .lt();
+        margin: (100 / @vw) 0 0 (100 / @vw);
+        img{
+            width: (145 / @vw);
+        }
+    }
+    .p6m{
+        .cl(256);
+        margin-top: (200 / @vw);
+        img{
+            width: (356 / @vw);
+        }
+    }
+    .p6r{
+        .rt();
+        margin: (100 / @vw) (100 / @vw) 0 0 ;
+        img{
+            width: (99 / @vw);
+        }
+    }
+    .btns{
+        .lb();
+        bottom: (100 / @vw);
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        // padding: 0 (100 / @vw);
+    }
+    }
+
+    .page7{
+        text-align: center;
+    .p6_bg{
+        .lt();
+        width: 100%;
+        height: 100%;
+        z-index: -99;
+        } 
+    .p6_8{
+        .lt();
+            width: 100%;
+            .ct(308);
+            z-index: -88;
+        }
+        .p7l{
+            .lt();
+            .ct(317);
+            margin-left: (52 / @vw);
+            img{
+                &:first-of-type{
+                    .setwh(137, 317);
+                }
+                &:last-of-type{
+                    .setwh(52, 151);
+                    margin-bottom: (76 / @vw);
+                }
+            }
+        }
+        .p7r{
+            .ct(500);
+            margin-left: (266 / @vw);
+            overflow: hidden;
+            img{
+                width: (217 / @vw);
+                &:nth-child(odd){
+                    margin-bottom: (220 / @vw);
+                }
+            }
+        }
+        .btn{
+            .cl(676);
+            margin-top: ( 600 / @vw);
+            text-align: center;
+            img{
+                &:first-of-type{
+                    width: (357 / @vw);
+                }
+                &:last-of-type{
+                    width:(676 / @vw) ;
+                }
+            }
+        }
+    }
+    
+}
+
+
+// page1 
+
+/* 圆 */
+@keyframes rounds{
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY((-15 / @vw));
+    }
+    50%{
+
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY((15 / @vw));
+    }
+    100%{
+        
+        transform: translateY(0);
+    }
+}
+
+/* 按钮 */
+@keyframes btnp2{
+    0%{
+        transform:scale(1);
+    }
+    15%{
+        transform:scale(.9);
+    }
+    30%{
+        transform:scale(1);
+    }
+    45%{
+        transform:scale(.9);
+    }
+    60%{
+        transform:scale(1);
+    }
+    75%{
+        transform:scale(.9);
+    }
+    85%{
+        transform:scale(.8);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes text1{
+    0%{
+        transform: translateX(-100 / @vw);
+        opacity: .7;
+    }
+    50%{
+        transform: translateX(-50 / @vw);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(0 / @vw);
+        opacity: 1;
+    }
+
+}
+
+@keyframes text2{
+    0%{
+        transform: translateY(-100 / @vw);
+        opacity: .7;
+    }
+    50%{
+        transform: translateY(-50 / @vw);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0 / @vw);
+        opacity: 1;
+    }
+
+}
+
+@keyframes hintthree{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50%{
+        transform: translateY(15 / @vw);
+        opacity: .5;
+    }
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 锅盖下盖 */
+@keyframes pot{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(210 / @vw);
+    }
+}
+
+/* 簸箕 */
+@keyframes dustpan2{
+    0%{
+        transform: translate(0,0) rotateZ(0);
+    }
+    40%{
+        transform: translate(450 / @vw,-250 / @vw) rotateZ(0);
+    }
+    50%{
+        transform: translate(450 / @vw,-250 / @vw) rotateZ(30deg);
+    }
+    70%{
+        transform: translate(450 / @vw,-250 / @vw) rotateZ(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(0,0) rotateZ(0);
+        opacity: 0;
+    }
+}
+
+/* 高粮 */
+@keyframes sorghum{
+    0%{
+        transform: translate(0,0);
+    }
+    90%{
+        transform: translate(30 / @vw,30 / @vw);
+    }
+    100%{
+        transform: translate(30 / @vw,30 / @vw);
+        opacity: 0;
+    }
+}
+
+/* 蒸汽 */
+@keyframes steam{
+    0%{
+        transform: translateY(0) translateY(0);
+        opacity: .4;
+    }
+    40%{
+        transform: translateY(-240 / @vw) scaleY(1.25);
+        opacity: .8;
+    }
+    50%{
+        transform: translateY(-320 / @vw)  scaleY(1.4);
+        opacity: .7;
+    }
+    60%{
+        transform: translateY(-400 / @vw) scaleY(1.6);
+        opacity: .6;
+    }
+    70%{
+        transform: translateY(-460 / @vw)  scaleY(1.8);
+        opacity: .5;
+    }
+    80%{
+        transform:  translateY(-460 / @vw) scaleY(2);
+        opacity: .4;
+    }
+    100%{
+        transform: translateY(-460 / @vw) scaleY(2.2);
+        opacity: 0;
+    }
+}
+@keyframes steam2{
+    0%{
+        transform: translateY(0);
+        opacity: .3;
+    }
+    40%{
+        transform: translateY(-320 / @vw);
+        opacity: .7;
+    }
+    50%{
+        transform: translateY(-400 / @vw);
+        opacity: .8;
+    }
+    60%{
+        transform: translateY(-480 / @vw);
+        opacity: 6;
+    }
+    70%{
+        transform: translateY(-560 / @vw);
+        opacity: .5;
+    }
+    80%{
+        transform: translateY(-640 / @vw);
+        opacity: .4;
+    }
+    100%{
+        transform: translateY(-620 / @vw) ;
+        opacity: 0;
+    }
+}
+
+/* 制作属于你的茅台酒 end */ 
